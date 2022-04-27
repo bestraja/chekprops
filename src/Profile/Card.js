@@ -1,18 +1,31 @@
 import React from 'react';
+import { useState } from 'react';
 
 
-
-const Card = ({pod,sh}) => {
+const Card = ({pod}) => {
   const sty={ color:"red"}
+  const [show , setShow]=useState(false);
+ const [count, setCount]=useState(0); 
+ 
+
+ 
   return (
-    <div className='product-card'>
+ <div  className='product-card'>
+   <div className='parti1'>
         <img src={pod.image} alt=''/>
-     <div className='card-content'>
-        <h2>Bio:{pod.bio}</h2>
-        <h2 style={sty}> {pod.profession} </h2>
-        <button onClick={()=>sh(pod.fullName)}>Click me </button>
+        <button onClick={()=>setShow(!show)}>Show Profil </button>
     </div>
+    {show ? (
+     <div className='card-content'>
+       <button onClick={()=>setShow(false)}>x</button>
+       <h3>{pod.fullName}</h3>
+      <img src={pod.bio} alt=''/>
+        <h2 style={sty}> {pod.profession} </h2>
+        
+    </div> ):null}
     
+    {show ?(
+    <div>Number of seconds:{setInterval(count,1000)}</div> ):null}
     </div>
   )
 }
