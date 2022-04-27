@@ -25,7 +25,7 @@ const Card = ({pod}) => {
     </div> ):null}
     
     {show ?(
-    <div>Number of seconds:{setInterval(count,1000)}</div> ):null}
+    <div>Number of seconds:{setInterval(setCount,1000)}</div> ):null}
     </div>
   )
 }
